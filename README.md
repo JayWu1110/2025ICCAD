@@ -5,10 +5,10 @@
 ## 1. Problem
 After detailed placement, jointly apply **gate sizing**, **buffering**, and **cell relocation** to improve PPA while keeping placement legal. Contest score:
 
-\[
+$$
 S = 1000 P - 50 D - 300 R,\quad
 P = \alpha\,TNS_{norm} + \beta\,POWER_{norm} + \gamma\,WL_{norm}
-\]
+$$
 
 ## 2. What this repo provides
 | Component | Role |
@@ -20,7 +20,7 @@ P = \alpha\,TNS_{norm} + \beta\,POWER_{norm} + \gamma\,WL_{norm}
 | `src/ICCAD_ProbC_ENV/` | CUDA + PyTorch Docker for differentiable backends |
 | `src/openroad_docker/` | Project-local OpenROAD Docker launcher |
 | `RESULTS.md` | **Recommended deliverable and ranking notes** |
-| `main.tex` / `report/` / `slides/` | Course report & presentation |
+| `report/` / `slides/` | Course report & presentation |
 
 ### Recommended deliverable (best result)
 
@@ -141,7 +141,7 @@ Roadmap scaffold: `src/python/framework/` (window schedule, displacement budget,
 ## 5. Directory
 ```text
 .
-├── main.tex / references.bib
+├── references.bib
 ├── report/  slides/  supplements/
 └── src/
     ├── aes_cipher_top/
