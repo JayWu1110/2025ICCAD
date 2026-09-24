@@ -1,0 +1,24 @@
+# OpenROAD container with this repo mounted at /workspace
+# Usage (from this directory):
+#   docker compose run --rm openroad
+#   docker compose run --rm openroad openroad -exit /workspace/openRoad_eval_script/optimize_adaptive.tcl
+
+services:
+  openroad:
+    image: iccad2025-openroad:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        OPENROAD_DEB: openroad_2.0-17598-ga008522d8_amd64-ubuntu-22.04.deb
+    working_dir: /workspace
+    volumes:
+      # Mount entire src/ so ASAP7, aes_cipher_top, scripts, python are visible
+      - ../:/workspace
+    environment:
+      - DISPLAY=${DISPLAY:-}
+      - QT_X11_NO_MITSHM=1
+    # Uncomment on Linux/WSL with X11 GUI:
+    # network_mode: host
+    stdin_open: true
+    tty: true

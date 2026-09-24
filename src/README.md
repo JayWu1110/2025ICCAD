@@ -1,5 +1,35 @@
-# Problem Formulation
-This project addresses the 2025 ICCAD Contest Problem C: Incremental Placement Optimization Beyond Detailed Placement: Simultaneous Gate Sizing, Buffering, and Cell Relocation. Unlike traditional sequential flows, where gate sizing, buffering, and cell relocation are applied one at a time, this contest challenges us to simultaneously perform all three optimizations to achieve globally better power, performance, and area.
+# Problem C sources
 
-# Goal
-The goal is to repair timing violations (e.g., negative slack), reduce power and half-perimeter wirelength(HPWL), and maintain legal placement.
+## Goal
+Simultaneous **gate sizing**, **buffering**, and **cell relocation** after detailed placement to improve timing, power, and HPWL under legality and contest score \(S\).
+
+## Best result
+**`hybrid_polish`** — `openRoad_eval_script/results/aes_cipher_top_hybrid_polish.def`  
+Details: [RESULTS.md](../RESULTS.md)
+
+## Run
+See the top-level [README.md](../README.md).
+
+Short path inside an OpenROAD container:
+```bash
+cd openRoad_eval_script
+openroad -exit eval_def.tcl
+openroad -exit optimize_adaptive.tcl
+bash run_experiments.sh --strengthen
+```
+
+From host (Docker):
+```bash
+cd openroad_docker
+./run.sh strengthen
+./run.sh csv
+```
+
+Python helpers:
+```bash
+cd python
+python3 contest_score.py --from-report
+python3 compare_results.py
+python3 analyze_placement.py
+python3 -m framework.smoke_test
+```

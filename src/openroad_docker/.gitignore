@@ -1,0 +1,5 @@
+# Local OpenROAD packages / image dumps — keep out of git
+*.deb
+*.tar
+*.tar.gz
+openroad-image.tar
